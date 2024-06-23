@@ -9,7 +9,7 @@ public class TwoHW {
                 {31, 21, 31},
                 {3, 2, 0}
         };
-//        System.out.println(findElementInArray(1, array));
+        System.out.println(findElementInArray(1, array));
 
         int[] twoTask = findMinIndexInTwoArray(twoArray);
 
