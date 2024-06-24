@@ -49,9 +49,9 @@ public class ThreeHWAlgoritms {
 
             // Перемещаем элементы массива, которые меньше ключа,
             // на одну позицию вперёд от их текущей позиции
-            while (j >= 0 && array[j] < key) {
+            while (j >= 0 && array[j] > key) {
                 array[j + 1] = array[j];
-                j = j - 1;
+                j--;
             }
             array[j + 1] = key;
         }
