@@ -1,9 +1,14 @@
 package homework.FourHW;
 
+import webinar.oop2presentation.Egg;
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
 public class Person {
     private String fio;
-    private String birthDay;
-    private String openCardDate;
+    private Date birthDay;
+    private Date openCardDate;
 
     private static String defaultValue = "Не определенно";
 
@@ -21,19 +26,19 @@ public class Person {
         this.fio = fio;
     }
 
-    public String getBirthDay() {
+    public Date getBirthDay() {
         return birthDay;
     }
 
-    public void setBirthDay(String birthDay) {
+    public void setBirthDay(Date birthDay) {
         this.birthDay = birthDay;
     }
 
-    public String getOpenCardDate() {
+    public Date getOpenCardDate() {
         return openCardDate;
     }
 
-    public void setOpenCardDate(String openCardDate) {
+    public void setOpenCardDate(Date openCardDate) {
         this.openCardDate = openCardDate;
     }
 
@@ -45,10 +50,11 @@ public class Person {
                 ", \n\topenCardDate='" + openCardDate + '\'' +
                 "\n}";
     }
-    public static class Builder{
+
+    public static class Builder {
         private String fio = defaultValue;
-        private String birthDay = defaultValue;
-        private String openCardDate = defaultValue;
+        private Date birthDay;
+        private Date openCardDate;
 
 
         public Builder fio(String fio) {
@@ -57,12 +63,33 @@ public class Person {
         }
 
         public Builder birthDay(String birthDay) {
-            this.birthDay = birthDay;
+            this.birthDay = new Date(birthDay);
             return this;
         }
 
+        public Builder birthDay(String birthDay, LocalDate date) {
+            this.birthDay = new Date(birthDay, date);
+            return this;
+        }
+
+        public Builder birthDay(LocalDate date) {
+            this.birthDay = new Date(date);
+            return this;
+        }
+
+
         public Builder openCardDate(String openCardDate) {
-            this.openCardDate = openCardDate;
+            this.openCardDate = new Date(openCardDate);
+            return this;
+        }
+
+        public Builder openCardDate(String openCardDate, LocalDate date) {
+            this.openCardDate = new Date(openCardDate, date);
+            return this;
+        }
+
+        public Builder openCardDate(LocalDate date) {
+            this.openCardDate = new Date(date);
             return this;
         }
 
@@ -70,5 +97,13 @@ public class Person {
             return new Person(this);
         }
 
+    }
+
+    public Boolean isActualCard() {
+        LocalDate dateNow = LocalDate.now();
+//        Возможно стоит вынести в отдельное поле
+        LocalDate endCardDate = this.openCardDate.getDate().plusYears(2);
+
+        return dateNow.isBefore(endCardDate);
     }
 }

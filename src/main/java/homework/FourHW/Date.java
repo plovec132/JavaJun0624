@@ -1,6 +1,6 @@
 package homework.FourHW;
-import java.time.LocalDate;
 
+import java.time.LocalDate;
 
 
 public class Date {
@@ -10,6 +10,21 @@ public class Date {
     public Date(String signature) {
         this.signature = signature;
         this.date = LocalDate.now();
+    }
+
+    public Date() {
+        this.signature = "без сигнатуры";
+        this.date = LocalDate.now();
+    }
+
+    public Date(String signature, LocalDate date) {
+        this.signature = signature;
+        this.date = date;
+    }
+
+    public Date(LocalDate date) {
+        this.signature = "без сигнатуры";
+        this.date = date;
     }
 
     public String getSignature() {
@@ -36,8 +51,3 @@ public class Date {
                 '}';
     }
 }
-//
-//    // Метод для форматирования LocalDate в строку
-//    public static String format(LocalDate date) {
-//        return date.format(formatter);
-//    }
