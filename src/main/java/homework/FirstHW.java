@@ -13,14 +13,14 @@ public class FirstHW {
     };
 
     public static void main() {
-//        System.out.println(compareNumbers(5, 8));
-//        System.out.println(evenCheck(666));
-//        howTimeZone(1);
-//        howTimeZone(7);
-//        howTimeZone(13);
-//        howTimeZone(18);
-//        System.out.println(initСalculator());
-//        convertToRomanNumeralSystem(48);
+        System.out.println(compareNumbers(5, 8));
+        System.out.println(evenCheck(666));
+        howTimeZone(1);
+        howTimeZone(7);
+        howTimeZone(13);
+        howTimeZone(18);
+        System.out.println(initСalculator());
+        convertToRomanNumeralSystem(48);
         System.out.println(isSimpleNumber(283));
 
     }
